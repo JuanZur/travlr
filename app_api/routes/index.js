@@ -3,7 +3,13 @@ const router = express.Router();
 const ctrlMain = require('../controllers/trips')
 
 /* GET home page. */
-router.get('/trips', ctrlMain.tripsList);
-router.get('/trips/:tripCode', ctrlMain.tripsFindByCode)
+router
+  .route('/trips')
+  .get(ctrlMain.tripsList)
+  .post(ctrlMain.tripsAddTrip);
+router
+  .route('/trips/:tripCode')
+  .get(ctrlMain.tripsFindByCode)
+  .put(ctrlMain.tripsUpdateTrip);
 
 module.exports = router;
