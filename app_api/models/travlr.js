@@ -3,6 +3,7 @@ const host = process.env.DB_HOST || '127.0.0.1';
 const dbURI = `mongodb://${host}:27017/travlr`;
 const readLine = require('readline');
 
+require('./user')
 // avoid 'current server discovery and monitoring engine is deprecated'
 mongoose.set('useUnifiedTopology', true);
 
